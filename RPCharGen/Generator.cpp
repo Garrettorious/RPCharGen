@@ -1,23 +1,9 @@
-//Class containing functions for generating 5th Edition Dungeons and Dragons Characters using the Core Rulebook
-#include "CharacterGenerator.h"
+//Generator.cpp
+//Class containing functions for generating 5E Tabletop Characters
+#include "Generator.h"
 #include "Dice.h"
 
-class CharacterGenerator {
-
-CharClass charClass;
-Species species;
-Abilities abilities;
-Character character;
-Dice dice;
-
-/*Need to make GenerateCharacter() have default arguments and overloads, so things can be either specified or not.
-
-Example:
-CreateCharacter(PC, 10, Dwarf, Cleric, Male);
-CreateCharacter(NPC, 5, Dwarf, Soldier, Female);
-CreateCharacter(5); //Defaults to Player Character unless NPC is specified
-CreateCharacter(NPC);
-CreateCharacter(
+/*
 
 **Thoughts**
 
@@ -54,14 +40,45 @@ What was my background?
 What Languages do I speak?
 What are my Flaws and Traits?
 
+What equipment and items do I own?
+
 */
 
 
+Character Generator::CreateCharacter() {
+
+
+	return character;
+
+};
+
+Character Generator::CreateCharacter(string type, int level, Species Dwarf, CharClass charClass, Gender gender) {
+
+	return character;
+
+};
+
+Character Generator::CreateCharacter(string type, int level, CharClass charClass, Gender gender) {
+
+	return character;
+
+};
+
+Character Generator::CreateCharacter(int level) {
+
+	return character;
+
+};
+
+Character Generator::CreateCharacter(string type) {
+
+	return character;
+
+};
 
 
 
-
-int RollHitPoints(int level) //Determine the Proper MaxHp for the character given Class, Race, Level, and any relevant Modifiers.
+int Generator::RollHitPoints(int level, CharClass charClass) //Determine the Proper MaxHp for the character given Class, Race, Level, and any relevant Modifiers.
 	{
 
 	
@@ -71,9 +88,4 @@ int RollHitPoints(int level) //Determine the Proper MaxHp for the character give
 		return maxHitPoints;
 
 	}
-
-
-
-
-};
 

@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include <string>
 
@@ -27,6 +27,8 @@ struct Abilities {
 };
 
 enum Skills { Animal_Handling, Athletics,  };
+
+enum Gender { Male, Female, Nonbinary, Agender, TwoSpirit};
 
 struct Age { //the Aging profile for a given race
 	int youth;

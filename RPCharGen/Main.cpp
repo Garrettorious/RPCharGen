@@ -1,5 +1,5 @@
 #include <iostream>
-#include "CharacterGenerator.h"
+#include "Generator.h"
 #include "Dice.h"
 
 using namespace std;
@@ -11,6 +11,7 @@ void main() {
 
 	Character character;
 	Dice dice;
+	Generator generator;
 	character.name = "Davy Boy";
 	character.inventory.items = {"Floppy Hat", "Thick Leather Belt", "Emerald Dagger", "Umber Hulk Rib"};
 
@@ -36,5 +37,8 @@ void main() {
 	cout << dice.Roll(6) << endl;
 	cout << dice.Roll(1, 6) << endl;
 	cout << dice.Roll() << endl;
+
+	generator.CreateCharacter();
+
 	system("pause");
 }
