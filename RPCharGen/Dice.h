@@ -15,6 +15,7 @@ public:
 	int Roll(int amount, int sides, int modifier);
 	int Roll(int ammount, int sides);
 	int Roll(int sides);
+	int Roll();
 };
 
 #endif

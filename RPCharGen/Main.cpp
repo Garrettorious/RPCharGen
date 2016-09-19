@@ -32,6 +32,9 @@ void main() {
 
 	cout << "-------------------------------" << endl;
 
-	cout << dice.Roll(5,6,0) << endl;
+	cout << dice.Roll(1,6,2) << endl;
+	cout << dice.Roll(6) << endl;
+	cout << dice.Roll(1, 6) << endl;
+	cout << dice.Roll() << endl;
 	system("pause");
 }
