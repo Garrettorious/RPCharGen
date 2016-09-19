@@ -4,7 +4,6 @@
 
 class CharacterGenerator {
 
-	
 CharClass charClass;
 Species species;
 Abilities abilities;
@@ -12,15 +11,26 @@ Character character;
 Dice dice;
 
 /*Need to make GenerateCharacter() have default arguments and overloads, so things can be either specified or not.
-Example usages:
 
+Example:
 CreateCharacter(PC, 10, Dwarf, Cleric, Male);
 CreateCharacter(NPC, 5, Dwarf, Soldier, Female);
 CreateCharacter(5); //Defaults to Player Character unless NPC is specified
 CreateCharacter(NPC);
 CreateCharacter(
 
-Logic:
+**Thoughts**
+
+Ideally this would be done in a way that neednt be completely "trickle down".
+
+Example:
+Generate a character with a certain physical appearance early on.
+Later, the class they are given requires that they be covered in tattoos.
+The gameClass can go back an add tattoos property of their physical appearance.
+The problem with this is if anything else was depending on something that was changed,
+this might require te writing of some kind of callback or update event to trickle changes across the Character.
+
+**Logic**
 Am I a Player or an NPC?
 
 If I am a Player:

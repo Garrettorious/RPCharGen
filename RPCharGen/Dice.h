@@ -10,12 +10,11 @@
 //Dice Declaration:
 class Dice
 {
-	int r;
-	int totalRolls;
-
 public:
-	int result;
+	
 	int Roll(int amount, int sides, int modifier);
+	int Roll(int ammount, int sides);
+	int Roll(int sides);
 };
 
 #endif
