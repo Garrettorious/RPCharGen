@@ -11,7 +11,6 @@ class Generator
 	//Main Character loop and it's overloads
 public:
 
-	Dice dice;
 	Names names;
 	Abilities baseAbilities;
 	//Skills baseSkills;

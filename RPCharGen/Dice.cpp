@@ -1,75 +1,28 @@
 #include "Dice.h"
 
-int r = rand();
-int result;
-int totalRolls = 0;
+#include <ctime> // For time()
+#include <random> // For std::mt19937, std::uniform_int_distribution, etc.
 
-int Dice::Roll(int amount = 1, int sides = 20, int modifier = 0 ) {
+// Declare a global random number generator using the standard Mersenne Twister algorithm, and seed it with the current time
+std::mt19937 rng {(unsigned int)time(0)}; // Note that you could also declare this in main() or your Generator class, and pass it to RollDice by reference
 
-	//roll a correct sided dice 'amount' times, and apply the modifier
-	static int const max = RAND_MAX / sides*sides;
+int RollDice(int amount, int sides, int modifier) {
 
-	//Roll The correct Number of times
-	for (int i = 0; i < amount; i++) {
+    // A distribution that will yield a number between 1 and <sides>, inclusive, with each possibility having equal probability
+    const std::uniform_int_distribution<int> rollDistribution {1, sides};
 
-		
-		while (r >= max) { r = rand(); }
-		int currentRoll = r%sides + 1;
-		//std::cout << "Roll " << "d" << sides << " #" << i + 1 << " = " << currentRoll << std::endl;
-		totalRolls = totalRolls + currentRoll;
+    int totalRolls = 0;
 
+    // C++ programmers tend to prefer ++i over i++. It's irrelevant when using ints, but can be significant (or even necessary) when looping via iterators
+	for (int i = 0; i < amount; ++i) { 
+
+        // a += b is shorthand for a = a + b, useful when you have longer variable names
+		totalRolls += rollDistribution(rng); // Can make use of the random number immediately without storing it in a variable first
 	}
 
-	//add the modifier
-	result = totalRolls + modifier;
-	return result;
-
+    return totalRolls + modifier; // No need to define a variable before returning, return can take any expression, even calls to other functions (see below)
 }
 
-//Overload with no modifier given
-int Dice::Roll(int amount = 1, int sides = 20) {
-
-	static int const max = RAND_MAX / sides*sides;
-
-	//Roll The correct Number of times
-	for (int i = 0; i < amount; i++) {
-
-		
-		while (r >= max) { r = rand(); }
-		int currentRoll = r%sides + 1;
-		//std::cout << "Roll " << "d" << sides << " #" << i + 1 << " = " << currentRoll << std::endl;
-		totalRolls = totalRolls + currentRoll;
-
-	}
-
-	//add the modifier
-	result = totalRolls;
-	return result;
-
-}
-
-//Overload with only the number of sides given
-int Dice::Roll(int sides = 20) {
-
-	//roll a correct sided dice 'amount' times, and apply the modifier
-	static int const max = RAND_MAX / sides*sides;
-
-	while (r >= max) { r = rand(); }
-	int result = r%sides + 1;
-
-	return result;
-}
-
-
-//Overload with no arguments, assumes 1 d20 +0
-int Dice::Roll() {
-
-	int sides = 20;
-	//roll a correct sided dice 'amount' times, and apply the modifier
-	static int const max = RAND_MAX / sides*sides;
-
-	while (r >= max) { r = rand(); }
-	int result = r%sides + 1;
-
-	return result;
-}
+int RollDice(int amount, int sides) { return RollDice(amount, sides, 0); } // If no modifier given, assumed to be zero
+int RollDice(int sides) { return RollDice(1, sides, 0); } // If only sides given, assume one die with no modifier
+int RollDice() { return RollDice(1, 20, 0); } // Overload with no arguments, assumes 1 d20 +0
