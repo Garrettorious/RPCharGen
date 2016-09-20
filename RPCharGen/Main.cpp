@@ -2,6 +2,7 @@
 #include "Generator.h"
 #include "Dice.h"
 
+
 using namespace std;
 void main() {
 
@@ -12,33 +13,24 @@ void main() {
 	Character character;
 	Dice dice;
 	Generator generator;
+	Gender male;
+	CharClass cleric;
+	Species dwarf;
+
+	cleric.hitDie = 8;
+	cleric.className = "Cleric" ;
+	
 	character.name = "Davy Boy";
 	character.inventory.items = {"Floppy Hat", "Thick Leather Belt", "Emerald Dagger", "Umber Hulk Rib"};
 
-	int intArray[] = { 1 , 2 , 3 , 4 , 5 };
-	for (auto val : intArray) {cout << val << endl;}
+	male.identity = "Male";
+	male.probability = 10;
 
-	cout << "-------------------------------" << endl;
+	dwarf.names.male = {"Jerry", "Bobby", "Uldrik", "Hamhead"};
 
-	intArray[2] = 12;
-	for (auto val : intArray) {cout << val << endl;}
 
-	cout << "-------------------------------" << endl;
 
-	cout << character.name << " checks their pack, inside are these items:" << endl; ;
-
-	for (auto itemName : character.inventory.items) {
-		cout << itemName << endl;
-	}
-
-	cout << "-------------------------------" << endl;
-
-	cout << dice.Roll(1,6,2) << endl;
-	cout << dice.Roll(6) << endl;
-	cout << dice.Roll(1, 6) << endl;
-	cout << dice.Roll() << endl;
-
-	generator.CreateCharacter();
+	generator.CreateCharacter("PC", true, 5, dwarf, cleric, male);
 
 	system("pause");
 }

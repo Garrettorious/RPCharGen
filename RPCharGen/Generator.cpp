@@ -1,7 +1,7 @@
 //Generator.cpp
 //Class containing functions for generating 5E Tabletop Characters
 #include "Generator.h"
-#include "Dice.h"
+#include "Dice.h" 
 
 /*
 
@@ -20,6 +20,46 @@ this might require te writing of some kind of callback or update event to trickl
 
 */
 
+Character Generator::CreateCharacter(string type, bool optimized, int level, Species species, CharClass charClass, Gender gender) {
+
+
+	
+	//if (optimized == true)
+	cout << "Creating Optimized " << type << ": " << "A " << "level " << level << " " << charClass.className << " known as " << species.names.male[1] << ", "  " who identifies as " << gender.identity << endl;
+
+	/*
+	**Logic**
+	Am I a Player or an NPC ?
+
+	If I am a Player :
+	Am I an Optimized, or Random character ? (Do I always pick the optimal mechanical choice etc.)
+
+	If I am an **Optimized** Character :
+	What Class am I?
+	What Species am I ?
+	Am I a Subspecies ?
+
+	What are my basic physical traits ? Gender ? How Old ? What Weight ? Hair and Eyecolor ?
+	What is my Name ?
+
+	What Level am I ?
+
+	Am I Multiclassed ?
+	If not, what Class am I ?
+	If I am Multiclassed, how many levels of each, and in what order ?
+
+	What are my Class specific Abilities ?
+
+	What was my background ?
+	What Languages do I speak ?
+	What are my Flaws and Traits ?
+
+	What equipment and items do I own ?
+
+	*/
+	return character;
+
+};
 
 Character Generator::CreateCharacter() {
 
@@ -56,42 +96,6 @@ Character Generator::CreateCharacter() {
 
 };
 
-Character Generator::CreateCharacter(string type, bool optimized, int level, Species Dwarf, CharClass charClass, Gender gender) {
-
-
-	/*
-	**Logic**
-	Am I a Player or an NPC ?
-
-	If I am a Player :
-	Am I an Optimized, or Random character ? (Do I always pick the optimal mechanical choice etc.)
-
-	If I am an **Optimized** Character :
-	What Class am I?
-	What Species am I ?
-	Am I a Subspecies ?
-
-	What are my basic physical traits ? Gender ? How Old ? What Weight ? Hair and Eyecolor ?
-	What is my Name ?
-
-	What Level am I ?
-
-	Am I Multiclassed ?
-	If not, what Class am I ?
-	If I am Multiclassed, how many levels of each, and in what order ?
-
-	What are my Class specific Abilities ?
-
-	What was my background ?
-	What Languages do I speak ?
-	What are my Flaws and Traits ?
-
-	What equipment and items do I own ?
-
-	*/
-	return character;
-
-};
 
 Character Generator::CreateCharacter(string type, int level, CharClass charClass, Gender gender) {
 

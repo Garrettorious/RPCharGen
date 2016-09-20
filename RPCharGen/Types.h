@@ -74,7 +74,7 @@ struct Species {
 struct CharClass {
 
 	int hitDie;
-
+	string className;
 };
 
 //----------------------------------

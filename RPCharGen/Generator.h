@@ -1,7 +1,8 @@
 //Generator.h
 #ifndef	GENERATOR_H
 #define GENERATOR_H
-
+#include <string>
+#include <iostream>
 #include "Dice.h"
 #include "Types.h"
 
@@ -23,7 +24,7 @@ public:
 
 	Character CreateCharacter();
 	Character CreateCharacter(string type, bool optimised, int level, Species species, CharClass charClass, Gender gender);
-	Character CreateCharacter(string type,int level, CharClass charClass, Gender gender);
+	Character CreateCharacter(string type, int level, CharClass charClass, Gender gender);
 	Character CreateCharacter(int level);
 	Character CreateCharacter(string type);
 
