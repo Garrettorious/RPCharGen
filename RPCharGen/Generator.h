@@ -10,13 +10,19 @@ class Generator
 	//Main Character loop and it's overloads
 public:
 
+	Dice dice;
+	Names names;
+	Abilities baseAbilities;
+	//Skills baseSkills;
+	Gender gender;
 	Character character;
 	CharClass charClass;
-	Dice dice;
+
+
 
 
 	Character CreateCharacter();
-	Character CreateCharacter(string type, int level, Species species, CharClass charClass, Gender gender);
+	Character CreateCharacter(string type, bool optimised, int level, Species species, CharClass charClass, Gender gender);
 	Character CreateCharacter(string type,int level, CharClass charClass, Gender gender);
 	Character CreateCharacter(int level);
 	Character CreateCharacter(string type);

@@ -1,8 +1,24 @@
+//Types.h
+//Defines all basic data types
 
-
+#ifndef TYPES_H
+#define TYPES_H
 #include <string>
 
 using namespace std;
+
+
+struct Skill {
+	string name;
+	string ability;
+	string description;
+};
+struct Gender {
+	string identity;
+	int probability;
+	 };
+
+//----------------------------------
 
 struct Names {
 
@@ -14,6 +30,20 @@ struct Names {
 	vector<string> suffix; //The Feebleminded, The Strong, The Ugly, The Powerful, The Great, Of The Many Arrows, The RedHanded, The Stained etc
 
 };
+struct Weight { //the Weight profile for a given race
+
+	int baseWeight;
+
+};
+struct Ages { //the Aging profile for a given race
+	int youth;
+	int midlife;
+	int old;
+	int venerable;
+	int maximum; //to be calculated per species 
+};
+
+//----------------------------------
 
 struct Abilities {
 
@@ -26,38 +56,28 @@ struct Abilities {
 
 };
 
-enum Skills { Animal_Handling, Athletics,  };
-
-enum Gender { Male, Female, Nonbinary, Agender, TwoSpirit};
-
-struct Age { //the Aging profile for a given race
-	int youth;
-	int midlife;
-	int old;
-	int venerable;
-	int maximum; //to be calculated per race 
-};
-
-struct Weight { //the Weight profile for a given race
-
-	int baseWeight;
-
-};
-
 struct Species {
 
 	Abilities abilityMods;
-	Skills skillMods;
+	Skill skillMods;
 
 	Weight weight;
-	Age age;
+	Ages ages;
 	string size;
 	int baseSpeed;
-
 	Names names;
-
 	vector<string> languages;
+
+	vector<string> speciesNames;
 };
+
+struct CharClass {
+
+	int hitDie;
+
+};
+
+//----------------------------------
 
 struct Inventory {
 
@@ -68,12 +88,6 @@ struct Inventory {
 	int silverPieces;
 	int goldPieces;
 	int platinumPieces;
-
-};
-
-struct CharClass {
-
-	int hitDie;
 
 };
 
@@ -98,3 +112,5 @@ struct Character {
 
 
 };
+
+#endif
