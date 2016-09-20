@@ -25,7 +25,7 @@ Character Generator::CreateCharacter(string type, bool optimized, int level, Spe
 
 	
 	//if (optimized == true)
-	cout << "Creating Optimized " << type << ": " << "A " << "level " << level << " " << charClass.className << " known as " << species.names.male[1] << ", "  " who identifies as " << gender.identity << endl;
+	cout << "Creating Optimized " << type << ": " << "A " << "level " << level << " " << charClass.className << " known as " << PickRandom(species.names.male) << ", "  " who identifies as " << gender.identity << endl;
 
 	/*
 	**Logic**

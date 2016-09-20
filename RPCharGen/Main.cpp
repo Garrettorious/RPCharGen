@@ -11,17 +11,18 @@ void main() {
 	Gender male;
 	CharClass cleric;
 	Species dwarf;
+    dwarf.names.male = {"Jerry", "Bobby", "Uldrik", "Hamhead"};
 
 	cleric.hitDie = 8;
 	cleric.className = "Cleric" ;
 	
-	character.name = "Davy Boy";
+	character.name = PickRandom(dwarf.names.male);
 	character.inventory.items = {"Floppy Hat", "Thick Leather Belt", "Emerald Dagger", "Umber Hulk Rib"};
 
 	male.identity = "Male";
 	male.probability = 10;
 
-	dwarf.names.male = {"Jerry", "Bobby", "Uldrik", "Hamhead"};
+	
 
 
 
