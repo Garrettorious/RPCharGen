@@ -1,10 +1,10 @@
 #include "Dice.h"
 
-int r = rand();
-int result;
-int totalRolls = 0;
+int RollDice(int amount = 1, int sides = 20, int modifier = 0 ) {
 
-int Dice::Roll(int amount = 1, int sides = 20, int modifier = 0 ) {
+    int r = rand();
+    int result;
+    int totalRolls = 0;
 
 	//roll a correct sided dice 'amount' times, and apply the modifier
 	static int const max = RAND_MAX / sides*sides;
@@ -27,7 +27,11 @@ int Dice::Roll(int amount = 1, int sides = 20, int modifier = 0 ) {
 }
 
 //Overload with no modifier given
-int Dice::Roll(int amount = 1, int sides = 20) {
+int RollDice(int amount = 1, int sides = 20) {
+
+    int r = rand();
+    int result;
+    int totalRolls = 0;
 
 	static int const max = RAND_MAX / sides*sides;
 
@@ -49,7 +53,10 @@ int Dice::Roll(int amount = 1, int sides = 20) {
 }
 
 //Overload with only the number of sides given
-int Dice::Roll(int sides = 20) {
+int RollDice(int sides = 20) {
+
+    int r = rand();
+    int totalRolls = 0;
 
 	//roll a correct sided dice 'amount' times, and apply the modifier
 	static int const max = RAND_MAX / sides*sides;
@@ -62,7 +69,10 @@ int Dice::Roll(int sides = 20) {
 
 
 //Overload with no arguments, assumes 1 d20 +0
-int Dice::Roll() {
+int RollDice() {
+
+    int r = rand();
+    int totalRolls = 0;
 
 	int sides = 20;
 	//roll a correct sided dice 'amount' times, and apply the modifier

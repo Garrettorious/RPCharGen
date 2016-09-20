@@ -120,7 +120,7 @@ int Generator::RollHitPoints(int level, CharClass charClass) //Determine the Pro
 
 	
 
-		int maxHitPoints = (charClass.hitDie + level) * (dice.Roll(level, charClass.hitDie, character.abilities.constitution));
+		int maxHitPoints = (charClass.hitDie + level) * (RollDice(level, charClass.hitDie, character.abilities.constitution));
 
 		return maxHitPoints;
 

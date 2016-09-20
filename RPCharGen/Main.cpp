@@ -11,7 +11,6 @@ void main() {
 	srand(static_cast<unsigned int>(time(NULL)));
 
 	Character character;
-	Dice dice;
 	Generator generator;
 	Gender male;
 	CharClass cleric;
