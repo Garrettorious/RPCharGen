@@ -10,20 +10,16 @@ int RollDice(int amount, int sides, int modifier) {
     // A distribution that will yield a number between 1 and <sides>, inclusive, with each possibility having equal probability
     const std::uniform_int_distribution<int> rollDistribution {1, sides};
 
-	//Roll The correct Number of times
     int totalRolls = 0;
-	for (int i = 0; i < amount; i++) {
 
-		int currentRoll = rollDistribution(rng); // Sample the distribution using the random number generator
-		//std::cout << "Roll " << "d" << sides << " #" << i + 1 << " = " << currentRoll << std::endl;
-		totalRolls = totalRolls + currentRoll;
+    // C++ programmers tend to prefer ++i over i++. It's irrelevant when using ints, but can be significant (or even necessary) when looping via iterators
+	for (int i = 0; i < amount; ++i) { 
 
+        // a += b is shorthand for a = a + b, useful when you have longer variable names
+		totalRolls += rollDistribution(rng); // Can make use of the random number immediately without storing it in a variable first
 	}
 
-	//add the modifier
-	int result = totalRolls + modifier;
-	return result;
-
+    return totalRolls + modifier; // No need to define a variable before returning, return can take any expression, even calls to other functions (see below)
 }
 
 int RollDice(int amount, int sides) { return RollDice(amount, sides, 0); } // If no modifier given, assumed to be zero
