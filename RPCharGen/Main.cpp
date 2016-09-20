@@ -5,11 +5,7 @@
 
 using namespace std;
 void main() {
-
-
-	//
-	srand(static_cast<unsigned int>(time(NULL)));
-
+    
 	Character character;
 	Generator generator;
 	Gender male;
