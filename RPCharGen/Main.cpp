@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Generator.h"
-#include "Dice.h"
+//#include "Dice.h"
 
 using namespace std;
 

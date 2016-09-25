@@ -20,7 +20,7 @@ struct Names { //species specific Name containers
 
 };
 
-struct Ages { //the Aging profile for a given race
+struct Age { //the Aging profile for a given race
 	int youth;
 	int midlife;
 	int old;
@@ -38,12 +38,34 @@ struct Stats {
 	int constitution = 0;
 
 };
-
 struct Skill {
 	string name;
 	string ability;
 	string description;
+}Athletics, Deception, History, Insight, Intimidations, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, SleightOfHand, Stealth, Survival;
+
+Skill Acrobatics{
+	Acrobatics.name = "Acrobatics",
+	Acrobatics.ability = "Strength",
+	Acrobatics.description = "Leaping, twisting, and cavorting about. "
+	
 };
+
+Skill AnimalHandling{
+	AnimalHandling.name = "Animal Handling",
+	AnimalHandling.ability = "Wisdom",
+	AnimalHandling.description = "Horse whispering, dog training, that sort of thing. "
+
+};
+
+Skill Arcana{
+
+};
+
+vector<Skill> Skills = { Acrobatics, AnimalHandling, Arcana, Athletics, Deception, History, Insight, Intimidations, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, SleightOfHand, Stealth, Survival };
+
+//Acrobatics, AnimalHandling, Arcana, Athletics, Deception, History, Insight, Intimidations, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, SleightOfHand, Stealth, Survival
+//vector<Skill> Skills = { Jumping, Running, Athletics };
 
 struct Species {
 
@@ -51,7 +73,7 @@ struct Species {
 
 	int weight;
 	float height;
-	Ages ages;
+	Age age;
 	string gameSize;
 	int speed;
 	Names names;
@@ -59,12 +81,20 @@ struct Species {
 	vector<string> languages;
 
 	vector<Species> subSpecies;
-};
+}Elf, Dragonborn, Dwarf, Gnome, HalfElf, Halfling, HalfOrc, Human, Tiefling;
+
+
 
 struct CharClass {
 
 	int hitDie;
 	string className;
+
+};
+
+struct Spell {
+
+	string description;
 
 };
 
@@ -86,17 +116,41 @@ struct Character {
 	//Will NOT be a generator class, simply a place to hold the data.
 
 	string name;
+	string background;
+	string alignment;
+	string player;
+
+	string ideals;
+	string bonds;
+	string flaws;
+
+	Species species;
+	CharClass charClass;
+
+	Stats baseScores;
+	Stats modifiers;
+
+	//vector<Spell> spellbook;
+	
+	int maxHP;
+	int currentHP;
+	int speed;
+
+	int proficiency;
+	int armorClass;
+
+	float experience;
+	int level{};
 
 	Inventory inventory;
 
-	int currentHP;
-	int maxHP;
-	float experience;
+	//functions for returning things that are computed from other things
+	//Passive Perception
+	//flatfooted or touch AC
+	//initiative
+	//speed and speed derivatives
 
-	Stats baseScores;
-
-	int Level{};
-	int Proficiency{};
+	
 
 };
 
