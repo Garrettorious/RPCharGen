@@ -3,39 +3,23 @@
 
 #ifndef TYPES_H
 #define TYPES_H
-#include <string>
+
 #include <vector>
+#include <string>
 
 using namespace std;
 
-
-struct Skill {
-	string name;
-	string ability;
-	string description;
-};
-struct Gender {
-	string identity;
-	int probability;
-	 };
-
-//----------------------------------
-
-struct Names {
+struct Names { //species specific Name containers
 
 	vector<string> male; // Harold, Jeremiah, Uldrik, Aragorn, Frodo, Barry
 	vector<string> female; // Maude, Tabitha, Urda, Emelia, Gwendolyn, Gwuinivere
 	vector<string> agender; // Pat, Astor, Dendel, Oda, Chud, Antari
-	vector<string> last; //Bluejeans, Ironback, Underhill, Took, Napier, Gildroven, Erikkson
+	vector<string> clan; //Bluejeans, Ironback, Underhill, Took, Napier, Gildroven, Erikkson
 	vector<string> prefix; //Doctor, Professor, Captain, Jolly, Goodie, The Magnificent, Brother, Judge, Sergeant, Pastor, High Lord etc.
 	vector<string> suffix; //The Feebleminded, The Strong, The Ugly, The Powerful, The Great, Of The Many Arrows, The RedHanded, The Stained etc
 
 };
-struct Weight { //the Weight profile for a given race
 
-	int baseWeight;
-
-};
 struct Ages { //the Aging profile for a given race
 	int youth;
 	int midlife;
@@ -44,41 +28,45 @@ struct Ages { //the Aging profile for a given race
 	int maximum; //to be calculated per species 
 };
 
-//----------------------------------
+struct Stats {
 
-struct Abilities {
+	int strength = 0;
+	int dexterity = 0;
+	int wisdom = 0;
+	int intelligence = 0;
+	int charisma = 0;
+	int constitution = 0;
 
-	int strength;
-	int dexterity;
-	int wisdom;
-	int intelligence;
-	int charisma;
-	int constitution;
+};
 
+struct Skill {
+	string name;
+	string ability;
+	string description;
 };
 
 struct Species {
 
-	Abilities abilityMods;
-	Skill skillMods;
+	Stats modifiers;
 
-	Weight weight;
+	int weight;
+	float height;
 	Ages ages;
-	string size;
-	int baseSpeed;
+	string gameSize;
+	int speed;
 	Names names;
+
 	vector<string> languages;
 
-	vector<string> speciesNames;
+	vector<Species> subSpecies;
 };
 
 struct CharClass {
 
 	int hitDie;
 	string className;
-};
 
-//----------------------------------
+};
 
 struct Inventory {
 
@@ -97,21 +85,25 @@ struct Character {
 	//should eventually be made generic, and then instanced to hold character data.
 	//Will NOT be a generator class, simply a place to hold the data.
 
-	string name = "GenericName";
+	string name;
 
 	Inventory inventory;
 
-	int currentHP = 10;
-	int maxHP = 50;
+	int currentHP;
+	int maxHP;
+	float experience;
 
-	int level = 0;
-	float experience = 0.f;
-	int proficiency = 2;
+	Stats baseScores;
 
-	Abilities abilities;
-
-
+	int Level{};
+	int Proficiency{};
 
 };
 
+
+//-----------------------------------
+
+
+
 #endif
+
