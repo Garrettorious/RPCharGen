@@ -7,25 +7,24 @@ using namespace std;
 
 void main() {
     
-
-	Species mySpecies;
-	mySpecies.names.male = { "Jim", "Bob" };
-
-	Stats myModifiers;
-	Character character;
+	
+//	Stats myModifiers;
 	Generator generator;
-	CharClass cleric;
-	//genderIdentity myGender = < "Male","Female","Agender","Twospirit" >;
+	//Character myCharacter = generator.CreateCharacter();
+	
+	generator.CreateCharacter("PC", true, 15, Dwarf, Rogue, "Male");
+
+	//So these currently don't print. I think it has something to do with the way I'm creating the structs.
+	//I'm currently trying to print a member variable of a struct. 
+
+	//Species * mySpecies; //Made a species pointer...
 
 	
+	//mySpecies & Dwarf;
 
-	cleric.hitDie = 8;
-	cleric.className = "Cleric" ;
-	
-	//character.name = PickRandom(mySpecies.names.male);
-	character.inventory.items = { "Floppy Hat", "Thick Leather Belt", "Emerald Dagger", "Umber Hulk Rib" };
+	cout << Dwarf.speciesName << "<----  This should say Dwarf." << endl; //These dont work... WHY???
+	cout << Rogue.className << "<---- This should say Rogue." << endl;
 
-	generator.CreateCharacter("PC", true, 5, mySpecies, cleric, "boop");
 
 	system("pause");
 }
