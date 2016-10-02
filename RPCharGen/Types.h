@@ -13,14 +13,56 @@ using namespace std;
 
 struct Names { //species specific Name containers, Filled with Generic Data
 
-	vector<string> male = { "Gene", "Harold", "Jeremiah", "Uldrik", "Aragorn", "Frodo", "Barry" }; 
-	vector<string> female = {"Gena", "Maude", "Tabitha", "Urda", "Emelia", "Gwendolyn", "Gwuinivere"};
-	vector<string> agender = { "Generico", "Pat", "Astor", "Dendel", "Oda", "Chud", "Antari" }; 
+	vector<string> male;
+	vector<string> female;
+	vector<string> agender;
 
-	vector<string> clan = { "Bluejeans", "Ironback", "Underhill", "Took", "Napier", "Gildroven", "Erikkson" }; 
+	vector<string> clan;
 
-	vector<string> prefix = { "Doctor", "Professor", "Captain", "Jolly", "Goodie", "The Magnificent", "Brother", "Judge", "Sergeant", "Pastor", "High Lord", "King" }; 
-	vector<string> suffix = { "The Feebleminded", "The Strong", "The Ugly", "The Powerful", "The Great", "Of The Many Arrows", "The RedHanded", "The Stained" };
+	vector<string> prefix;
+	vector<string> suffix;
+
+	/*Names() : 
+		male { "Gene", "Harold", "Jeremiah", "Uldrik", "Aragorn", "Frodo", "Barry" },
+		female { "Gena", "Maude", "Tabitha", "Urda", "Emelia", "Gwendolyn", "Gwuinivere" },
+		agender { "Generico", "Pat", "Astor", "Dendel", "Oda", "Chud", "Antari" },
+		clan { "Bluejeans", "Ironback", "Underhill", "Took", "Napier", "Gildroven", "Erikkson" },
+		prefix { "Doctor", "Professor", "Captain", "Jolly", "Goodie", "The Magnificent", "Brother", "Judge", "Sergeant", "Pastor", "High Lord", "King" },
+		suffix { "The Feebleminded", "The Strong", "The Ugly", "The Powerful", "The Great", "Of The Many Arrows", "The RedHanded", "The Stained" }
+	{
+		
+	}
+
+	Names(vector<string> male_names, vector<string> female_names, vector<string> agender_names, vector<string> clans, vector<string> prefixes, vector<string> suffixes):
+		male { male_names },
+		female { female_names },
+		agender { agender_names },
+		clan { clans },
+		prefix { prefixes },
+		suffix { suffixes }
+	{
+
+	}*/
+
+	/*Names(vector<string> male_names, vector<string> female_names, vector<string> agender_names, vector<string> clans, vector<string> prefixes, vector<string> suffixes)
+	{
+		male = male_names;
+		female = female_names;
+		agender = agender_names;
+		clan = clans;
+		prefix = prefixes;
+		suffix = suffixes;
+	}*/
+};
+
+const Names default_names
+{
+	{ "Gene", "Harold", "Jeremiah", "Uldrik", "Aragorn", "Frodo", "Barry" },
+	{ "Gena", "Maude", "Tabitha", "Urda", "Emelia", "Gwendolyn", "Gwuinivere" },
+	{ "Generico", "Pat", "Astor", "Dendel", "Oda", "Chud", "Antari" },
+	{ "Bluejeans", "Ironback", "Underhill", "Took", "Napier", "Gildroven", "Erikkson" },
+	{ "Doctor", "Professor", "Captain", "Jolly", "Goodie", "The Magnificent", "Brother", "Judge", "Sergeant", "Pastor", "High Lord", "King" },
+	{ "The Feebleminded", "The Strong", "The Ugly", "The Powerful", "The Great", "Of The Many Arrows", "The RedHanded", "The Stained" }
 };
 
 struct Age { //the Aging profile for a given race, Filled with Generic Data
@@ -30,21 +72,25 @@ struct Age { //the Aging profile for a given race, Filled with Generic Data
 	int venerable;// = 100;
 	int maximum;// = RollDice(2, 6, venerable); //to be calculated per species 
 };
-
-Age DummyAge{
-
-	DummyAge.youth = 20,
-	DummyAge.midlife = 45,
-	DummyAge.old = 60,
-	DummyAge.venerable = 100,
-	DummyAge.maximum = RollDice(2, 6, DummyAge.venerable),
+const Age DummyAge {20, 45, 60, 100, 105};
 
 
-};
+
 
 vector<string> Genders = {"Male", "Female", "Agender"};
 
 vector<string> TypeList = { "PC", "NPC" };
+
+enum Stat
+{
+	STRENGTH,
+	DEXTERITY,
+	WISDOM,
+	INTELLIGENCE,
+	CHARISMA,
+	CONSTITUTION,
+	NUM_STATS
+};
 
 struct Stats { //Filled With Generic Data
 	int strength;// = 10;
@@ -55,7 +101,7 @@ struct Stats { //Filled With Generic Data
 	int constitution;// = 10;
 };
 
-Stats DummyStats{
+Stats DummyStats{ //Stat should be ability
 	DummyStats.strength = 10,
 	DummyStats.dexterity = 10,
 	DummyStats.wisdom  = 10,
@@ -65,28 +111,25 @@ Stats DummyStats{
 	
 };
 
-struct Skill { //A Basic Skill
+//A Basic Skill
+struct Skill 
+{ 
 	string name; // The friendly name of he skill
-	string ability; // the base abiility score used for the skill
+	Stat stat; // the base abiility score used for the skill
 	string description; // a one sentence description of the skill
 };
 
-
-Skill Acrobatics{
-	Acrobatics.name = "Acrobatics",
-	Acrobatics.ability = "Strength",
-	Acrobatics.description = "Leaping, twisting, and cavorting about. ",
-};
-
-Skill AnimalHandling{
-	AnimalHandling.name = "Animal Handling",
-	AnimalHandling.ability = "Wisdom",
-	AnimalHandling.description = "Horse whispering, dog training, that sort of thing. ",
+const Skill skills[] // The [] syntax introduces an array, and this pattern can be used to represent a "table" of stuff
+{
+	// Name				Stat		Description
+	{"Acrobatics",		STRENGTH,	"Leaping, twisting, and cavorting about. "},
+	{"Animal Handling", WISDOM,		"Horse whispering, dog training, that sort of thing. "},
+	{"Intimidation",	CHARISMA,	"Being mean for meanness sake."}
 };
 
 Skill Arcana{
 	Arcana.name = "Arcana",
-	Arcana.ability = "???",
+	Arcana.stat = STRENGTH,
 	Arcana.description = "???",
 };
 
@@ -97,7 +140,6 @@ Skill Deception{
 Skill History{
 };
 Skill Insight{};
-Skill Intimidations{};
 Skill Investigation{};
 Skill Medicine{};
 Skill Nature{};
@@ -109,14 +151,14 @@ Skill SleightOfHand{};
 Skill Stealth{};
 Skill Survival{};
 
-vector<Skill> SkillList = { Acrobatics, AnimalHandling, Arcana, Athletics, Deception, History, Insight, Intimidations, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, SleightOfHand, Stealth, Survival };
+vector<Skill> SkillList = { Arcana, Athletics, Deception, History, Insight, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, SleightOfHand, Stealth, Survival };
 
 /*------------------------SPECIES---------------------------*/
 
 struct Species { //A generic Species
 
 	string speciesName;
-	Stats modifiers;
+	int stat_modifiers[NUM_STATS];
 	int weight;
 	float height; 
 	Age age;
@@ -127,6 +169,30 @@ struct Species { //A generic Species
 	vector<Species> subSpecies;
 
 };
+
+const Names elf_names
+{ 
+	{"Legolas", "Gildor"},
+	{"Arwen", "Galadriel"},
+	{"Dendel"},
+	{"Quendi", "Sindarin"},
+	{"Lord", "Lady"},
+	{"Greenleaf", "Evenstar"}
+};
+const Species Elf
+{
+	"Elf", 
+	{0, 0, +2, 0, 0, 0},
+	120, 1.56f, 
+	{100, 225, 300, 500, 550}, 
+	"Medium", 
+	30,
+	elf_names,
+	{ "Quenya", "Sindarin", "Noldor" },
+	{}
+};
+
+/*
 
 Species Elf{
 	Elf.speciesName = "Elf",
@@ -140,6 +206,7 @@ Species Elf{
 	Elf.languages,
 	Elf.subSpecies,
 };
+*/
 
 Species Dragonborn{ Dragonborn.speciesName = "Dragonborn" };
 Species Dwarf{ Dwarf.speciesName = "Dwarf" };
@@ -216,6 +283,21 @@ vector<CharClass> NonplayerClasses = {Merchant};
 struct Spell {
 	string description;
 };
+
+struct Weapon
+{
+	string name;
+	Stat stat;
+	Dice damage;
+	float weight;
+};
+const Weapon weapons[]
+{
+	// Name			// Stat		// Damage	// Weight
+	{"Greataxe",	STRENGTH,	2*d6,		10.0f},
+	{"Bow",			DEXTERITY,	d8,			4.0f}
+};
+
 
 struct Inventory {
 	vector<string> items;

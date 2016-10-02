@@ -13,12 +13,25 @@ int RollDice(int sides);
 int RollDice();
 
 // Define a template for functions which takes a vector of instances of some type T and which return a single instance of T
+
 template<class T> 
+auto PickRandom(const T & things) 
+{
+	auto first = std::begin(things);
+	auto last = std::end(things);
+	auto num_things = std::distance(first, last);
+
+    int index = RollDice(num_things); // Roll a dice with one face for every "thing" in the container
+	std::advance(first, index-1);
+    return *first; // Use the result to index into the container (and remember that array indexing is zero-based in C/C++)
+}
+
+/*template<class T> 
 T PickRandom(const std::vector<T> & things) 
 {
     int index = RollDice((int)things.size()); // Roll a dice with one face for every "thing" in the container
     return things[index - 1]; // Use the result to index into the container (and remember that array indexing is zero-based in C/C++)
-}
+}*/
 
 //---------------------------
 
@@ -46,6 +59,13 @@ int RollDice(int amount, int sides) { return RollDice(amount, sides, 0); } // If
 int RollDice(int sides) { return RollDice(1, sides, 0); } // If only sides given, assume one die with no modifier
 int RollDice() { return RollDice(1, 20, 0); } // Overload with no arguments, assumes 1 d20 +0
 
-
+struct Dice 
+{ 
+	int count, sides, modifier; 
+	int roll() const { return RollDice(count, sides, modifier); }
+};
+Dice operator* (int mult, Dice d) { return {d.count*mult, d.sides, d.modifier*mult}; }
+Dice operator+ (Dice d, int mod) { return {d.count, d.sides, d.modifier + mod}; }
+const Dice d4 {1,4,0}, d6 {1,6,0}, d8 {1,8,0}, d10 {1,10,0}, d12 {1,12,0}, d20 {1,20,0};
 
 #endif
