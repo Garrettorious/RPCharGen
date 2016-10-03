@@ -145,26 +145,92 @@ const Skill skills[] // The [] syntax introduces an array, and this pattern can 
 	{"Stealth",			STRENGTH,	"Hiding unseen in the shadows and lurking quitely out of sight."},
 	{"Survival",		STRENGTH,	"Living off the land, orienteering, and simple cooking."},
 };
-//------------------------ABILITIES---------------------------//
+//------------------------ABILITIES-&-TRAITS---------------------------//
+
+struct Trait {
+	string name;
+	string description;
+};
 
 struct Ability {
 	string name;
 	string description;
 };
 
-const Ability Hambone {"Hambone", "To clap and slap upon your own body in a masterfully annoying rhythm."};
+//-------------------Racial Traits----------------------------//
+const Trait Hambone {"Hambone", "To clap and slap upon your own body in a masterful and annoying rhythm."};
+const Trait Darkvision {"Darkvision", "You can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light."};
+const Trait Resilience {"Resilience", "You have advantage on saving throws against poison, and resistance against poison damage."};
+const Trait DwarvenCombatTraining {"Dwarven Combat Training","You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer."};
+const Trait DwarvenToughness {"Dwarven Toughness","Your HitPoint maximum increases by one, and it increases by one everytime you gain a level."};
+const Trait DwarvenArmorTraining {"Dwarven Armor Training","You have proficiency wit light and medium armor."};
+const Trait DwarvenToolProficiency {};
+const Trait Stonecunning {"Stonecunning","You have double your proficiency bonus on Intelligence (History) checks made to determine the origin of stonework, even if you aare not otherwise proficient in history."};
+const Trait KeenSenses {"Keen Senses","You have proficiency in the perception skill."};
+const Trait FeyAncestry{"Fey Ancestry", "You have advantage on saving throws against being charmed, and magic can not put you to sleep."};
+const Trait Trance {"Trance", "You do not need to sleep. Instead, you meditate deeply, remaining semi-conscious for four hours a day."};
+const Trait ElvenWeaponTraining {"Elven Weapon Training", "You have proficiency with the longsword, shortsword, shortbow, and longbow."};
+const Trait ElvenCantrip{"Elven Cantrip", "You know one cantrip of your choice from the Wizard spell list. Intelligence is your spellcasting ability for it."};
+const Trait ExtraLanguage{"Extra Language","You know an extra language of your choice."};
+const Trait FleetFooted{"Fleet Footed", "Your base walking speed increases by five feet."};
+const Trait MaskOfTheWild{"Mask of the Wild", "You can attempt to hide even when only lightly obscured by natural phenomena, such as foliage, heavy rain, falling snow, and mist."};
+const Trait SuperiorDarkvision{"Superior Darkvision", "Your impressive darkvision has a range of 120 feet."};
+const Trait SunlightSensitivity{"Sunlight Sensitivity","You have disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."};
+const Trait DrowMagic{"Drow Magic","You know the 'Dancing Lights' cantrip. When you reach 3rd level, you can cast 'Faerie Fire' once per day. When you reach 5th level, you can also cast the 'Darkness' spell once per day. Charisma is your spellcasting ability for these spells."};
+const Trait Lucky{"Lucky","When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and MUST use the new roll."};
+const Trait Brave{"Brave", "You have advantage on saving throws against being frightened."};
+const Trait HalflingNimbleness{"Halfling Nimbleness", "You can move through the space of any creature that is of a size larger than yours."};
+const Trait NaturallySealthy{"Naturally Stealthy","You can attempt to hide even when obscured only by a creature that is at least one size larger than you."};
+const Trait DragonbornBreathWeapon{};
+const Trait GnomeCunning{};
+const Trait NaturalIllusionist{};
+const Trait SpeakWithSmallBeasts{};
+const Trait ArtificersLore{};
+const Trait Tinker{};
+const Trait SkillVersatility{"","You gain proficiency in two skills of your choice."};
+const Trait Menacing{};
+const Trait RelentlessEndurance{};
+const Trait SavageAttacks{};
+const Trait HellishResistance{};
+const Trait InfernalLegacy{};
 
-const Ability Darkvision {"Darkvision", "You can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light."};
+//----------ClassAbilities-----------//
+//BARBARIAN
+const Ability Rage{};
+const Ability UnarmoredDefense{};
+const Ability RecklessAttack{};
+const Ability DangerSense{};
+const Ability ExtraAttack{};
+const Ability FastMovement{};
+const Ability FeralInstinct{};
+const Ability BrutalCritical{};
+const Ability RelentlessRage{};
+const Ability PersistentRage{};
+const Ability IndomitableMight{};
+const Ability PrimalChampion{};
+//Path of the Berserker
+const Ability Frenzy{};
+const Ability MindlessRage{};
+const Ability IntimidatingPresence{};
+const Ability Retaliation{};
+//Path of the Totem Warrior
+const Ability SpiritSeeker{};
+const Ability TotemSpirit{};
+const Ability AspectOfTheBeast{};
+const Ability SpiritWalker{};
+const Ability TotemicAttunement{};
 
-const Ability DwarvenResilience {};
-const Ability CombatTraining {};
-const Ability Toughness {};
-const Ability DwarvenArmorTraining {};
-const Ability ToolProficiency {};
-const Ability Stonecunning {};
-const Ability KeenSenses {};
-const Ability FeyAncestry{};
-
+//BARD
+//CLERIC
+//DRUID
+//FIGHTER
+//MONK
+//PALADIN
+//RANGER
+//ROGUE
+//SORCERER
+//WARLOCK
+//WIZARD
 
 //------------------------SPECIES---------------------------//
 
