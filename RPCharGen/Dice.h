@@ -66,6 +66,6 @@ struct Dice
 };
 Dice operator* (int mult, Dice d) { return {d.count*mult, d.sides, d.modifier*mult}; }
 Dice operator+ (Dice d, int mod) { return {d.count, d.sides, d.modifier + mod}; }
-const Dice d4 {1,4,0}, d6 {1,6,0}, d8 {1,8,0}, d10 {1,10,0}, d12 {1,12,0}, d20 {1,20,0};
+const Dice d4 {1,4,0}, d6 {1,6,0}, d8 {1,8,0}, d10 {1,10,0}, d12 {1,12,0}, d20 {1,20,0}, d100 {1,100,0};
 
 #endif
